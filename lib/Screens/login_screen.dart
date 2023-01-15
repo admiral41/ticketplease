@@ -27,7 +27,38 @@ class _LoginScreenState extends State<LoginScreen> {
               "assets/images/splash_icon.png",
               height: 100,
               width: 800,
-            )
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: Text(
+                "Welcome Buddies",
+                style: TextStyle(
+                  fontSize: 22,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Text(
+              "Don't miss out! Login to book your seat now.",
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.white.withOpacity(0.7),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              padding: const EdgeInsets.all(19),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10.0)),
+              width: _size.width,
+              child: Column(
+                
+              ),
+            ),
           ],
         ),
       ),
