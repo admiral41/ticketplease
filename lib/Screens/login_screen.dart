@@ -114,6 +114,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                        primary: MyTheme.splash,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        )),
+                    child: const Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(15),
+                        child: Text(
+                          "LOGIN",
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                    ),
+                  ),
 
 
 
