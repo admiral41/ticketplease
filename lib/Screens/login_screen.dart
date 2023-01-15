@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../utils/my_theme.dart';
+import '../utils/social_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -131,8 +132,38 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-
-
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Divider(
+                            thickness: 0.5,
+                            color: Colors.black.withOpacity(0.3),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 5),
+                          child: const Text(
+                            "Or",
+                            style: TextStyle(color: Color(0xFFC1C1C1)),
+                          ),
+                        ),
+                        Expanded(
+                          child: Divider(
+                              thickness: 0.5,
+                              color: Colors.black.withOpacity(0.3)),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: SocialLoginButton(
+                        onGoogleClick: () {},
+                      onfbClick: () {},
+                    ),
+                  )
 
                 ],
               ),
