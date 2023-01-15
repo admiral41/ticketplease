@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ticketplease/Screens/signup_screen.dart';
 
 import '../utils/my_theme.dart';
 import '../utils/social_button.dart';
@@ -19,10 +21,12 @@ class _LoginScreenState extends State<LoginScreen> {
         const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return Scaffold(
       backgroundColor: MyTheme.splash,
+      resizeToAvoidBottomInset: false,
       body: Container(
         height: _size.height,
         width: _size.width,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
               "assets/images/splash_icon.png",
@@ -164,10 +168,31 @@ class _LoginScreenState extends State<LoginScreen> {
                       onfbClick: () {},
                     ),
                   )
-
                 ],
               ),
             ),
+            RichText(
+                text: TextSpan(children: [
+                  const TextSpan(
+                    text: "Don't have an account ? ",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                    ),
+                  ),
+                  TextSpan(
+                    text: "Sign up",
+                    style: const TextStyle(
+                      decoration: TextDecoration.underline,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.redAccent,
+                    ),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                         Navigator.push(context, MaterialPageRoute(builder: (_) => SignUpScreen()));
+                      },
+                  ),
+                ]))
           ],
         ),
       ),
