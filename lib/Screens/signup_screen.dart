@@ -31,6 +31,85 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   borderRadius: BorderRadius.circular(10.0)
               ),
               width: _size.width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text("Create your account",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: MyTheme.splash,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top:15),
+                    child: TextFormField(
+                      style: TextStyle(color: Colors.black),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: BorderSide.none,
+                        ),
+                        hintText: "Name",
+                        hintStyle: const TextStyle(color: Colors.black45),
+                        fillColor: MyTheme.greyColor,
+                        filled: true,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top:10),
+                    child: TextFormField(
+                      style: TextStyle(color: Colors.black),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: BorderSide.none,
+                        ),
+                        hintText: "Email Address",
+                        hintStyle: const TextStyle(color: Colors.black45),
+                        fillColor: MyTheme.greyColor,
+                        filled: true,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top:15),
+                    child: TextFormField(
+                      style: TextStyle(color: Colors.black),
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: BorderSide.none,
+                        ),
+                        hintText: "Password",
+                        hintStyle: const TextStyle(color: Colors.black45),
+                        fillColor: MyTheme.greyColor,
+                        filled: true,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top:10,bottom: 10),
+                    child: TextFormField(
+                      style: TextStyle(color: Colors.black),
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: BorderSide.none,
+                        ),
+                        hintText: "Confirm-Password",
+                        hintStyle: const TextStyle(color: Colors.black45),
+                        fillColor: MyTheme.greyColor,
+                        filled: true,
+                      ),
+                    ),
+                  ),
+                
+                ],
+              ),
             )
           ],
         ),
