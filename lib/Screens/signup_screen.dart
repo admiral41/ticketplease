@@ -1,6 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/my_theme.dart';
+import 'login_screen.dart';
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
@@ -125,7 +127,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ],
               ),
-            )
+            ),
+            RichText(
+                text: TextSpan(
+                    children:[
+                      const TextSpan(
+                        text: "Already have an account ? ",
+                        style: TextStyle(fontWeight: FontWeight.w700,color: Colors.white,),
+                      ),
+                      TextSpan(
+                        text: "Login",
+                        style: const TextStyle(decoration: TextDecoration.underline, fontWeight: FontWeight.w700,color: Colors.redAccent,),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreen()));
+                          },
+                      ),
+                    ]
+                ))
           ],
         ),
       ),
