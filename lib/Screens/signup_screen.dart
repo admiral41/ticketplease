@@ -16,10 +16,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final Size _size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: MyTheme.splash,
+      resizeToAvoidBottomInset: false,
       body: Container(
         height: _size.height,
         width: _size.width,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset("assets/images/splash_icon.png",
               height: 100,
