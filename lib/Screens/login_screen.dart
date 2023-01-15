@@ -56,7 +56,68 @@ class _LoginScreenState extends State<LoginScreen> {
                   borderRadius: BorderRadius.circular(10.0)),
               width: _size.width,
               child: Column(
-                
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Login to your account",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: MyTheme.splash,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: TextFormField(
+
+                      style: TextStyle(color: Colors.black),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: BorderSide.none,
+                        ),
+                        hintText: "Email",
+                        hintStyle: const TextStyle(color: Colors.black45),
+                        fillColor: MyTheme.greyColor,
+                        filled: true,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: TextFormField(
+
+                      style: TextStyle(color: Colors.black),
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: BorderSide.none,
+                        ),
+                        hintText: "Password",
+                        hintStyle: const TextStyle(color: Colors.black45),
+                        fillColor: MyTheme.greyColor,
+                        filled: true,
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {
+
+                      },
+                      child: Text(
+                        "Forgot Password?",
+                        style: TextStyle(
+                            color: Colors.black54, fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ),
+
+
+
+                ],
               ),
             ),
           ],
