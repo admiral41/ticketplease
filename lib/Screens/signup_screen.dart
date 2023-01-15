@@ -107,7 +107,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                     ),
                   ),
-                
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                        primary: MyTheme.splash,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        )
+                    ),
+                    child: const Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(15),
+                        child: Text("Register",
+                          style: TextStyle(fontSize: 16),),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             )
