@@ -22,6 +22,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
             Image.asset("assets/images/splash_icon.png",
               height: 100,
               width: 800,),
+            SizedBox(height: 20,),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+              padding: const EdgeInsets.all(19),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10.0)
+              ),
+              width: _size.width,
+            )
           ],
         ),
       ),
