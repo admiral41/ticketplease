@@ -18,9 +18,18 @@ class _LoginScreenState extends State<LoginScreen> {
         const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return Scaffold(
       backgroundColor: MyTheme.splash,
-      resizeToAvoidBottomInset: false,
       body: Container(
-        
+        height: _size.height,
+        width: _size.width,
+        child: Column(
+          children: [
+            Image.asset(
+              "assets/images/splash_icon.png",
+              height: 100,
+              width: 800,
+            )
+          ],
+        ),
       ),
     );
   }
