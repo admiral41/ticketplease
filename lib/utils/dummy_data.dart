@@ -81,3 +81,30 @@ List<EventModel> events = [
     date: "date",
   ),
 ];
+
+List<EventModel> plays = [
+  EventModel(
+    title: "Alex in wonderland",
+    description: "Comedy Show",
+    date: "date",
+    bannerUrl: "assets/plays/play1.png",
+  ),
+  EventModel(
+    title: "Marry poppins puffet show",
+    description: "Music Show",
+    date: "date",
+    bannerUrl: "assets/plays/play2.png",
+  ),
+  EventModel(
+    title: "Patrimandram special dewali",
+    description: "Dibet Show",
+    date: "date",
+    bannerUrl: "assets/plays/play3.png",
+  ),
+  EventModel(
+    title: "Happy Halloween 2K19",
+    description: "Music Show",
+    bannerUrl: "assets/plays/play4.png",
+    date: "date",
+  ),
+];

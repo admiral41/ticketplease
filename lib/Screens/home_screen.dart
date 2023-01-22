@@ -143,6 +143,37 @@ class _HomeScreenState extends State<HomeScreen> {
                 EventItems(
                   events: events,
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0, top: 10, right: 20),
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        "assets/icons/theater_masks.svg",
+                        color: Colors.black.withOpacity(0.8),
+                        height: 18,
+                        width: 18,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "Plays".toUpperCase(),
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black.withOpacity(0.8)),
+                      ),
+                      const Spacer(),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "View All",
+                          style: TextStyle(color: MyTheme.splash),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                EventItems(
+                  events: plays,
+                ),
               ],
             ),
           ),
