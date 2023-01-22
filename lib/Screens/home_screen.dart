@@ -7,6 +7,7 @@ import 'package:ticketplease/Controller/auth_controller.dart';
 import 'package:ticketplease/utils/constants.dart';
 import 'package:ticketplease/utils/custom_slider.dart';
 import '../utils/dummy_data.dart';
+import '../utils/menu_items.dart';
 import '../utils/my_theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -97,7 +98,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     index: 1,
                   );
                 }),
-              )
+              ),
+               Padding(
+                padding: EdgeInsets.only(left: 20.0,top: 20),
+                child: Text("SEAT CATEGORY",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black.withOpacity(0.8)),),
+              ),
+              MenuItems(),
             ],
           ),
         ),
