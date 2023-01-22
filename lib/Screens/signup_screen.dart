@@ -1,8 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:ticketplease/Controller/auth_controller.dart';
+import 'package:ticketplease/Controller/input_validator.dart';
+import 'package:ticketplease/utils/my_theme.dart';
 
-import '../utils/my_theme.dart';
-import 'login_screen.dart';
+
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
@@ -11,6 +15,10 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  final nameController =  TextEditingController();
+  final emailController =TextEditingController();
+  final passwordController = TextEditingController();
+  final cnfpasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
@@ -26,6 +34,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             Image.asset("assets/images/splash_icon.png",
               height: 100,
               width: 800,),
+
             SizedBox(height: 20,),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
@@ -48,6 +57,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top:15),
                     child: TextFormField(
+                      controller: nameController,
                       style: TextStyle(color: Colors.black),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -64,6 +74,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top:10),
                     child: TextFormField(
+                      controller: emailController,
                       style: TextStyle(color: Colors.black),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -80,6 +91,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top:15),
                     child: TextFormField(
+                      controller: passwordController,
                       style: TextStyle(color: Colors.black),
                       obscureText: true,
                       decoration: InputDecoration(
@@ -97,6 +109,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top:10,bottom: 10),
                     child: TextFormField(
+                      controller: cnfpasswordController,
                       style: TextStyle(color: Colors.black),
                       obscureText: true,
                       decoration: InputDecoration(
@@ -112,7 +125,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async{
+                      if(InputValidator.validateField("Name", nameController.text.trim()) &&
+                          InputValidator.validateField("Email", emailController.text.trim())) {
+                        if(InputValidator.validatePassword(passwordController.text.trim(), cnfpasswordController.text.trim()))
+                          AuthController.instance.
+                          registerUser(
+                              emailController.text.trim(),
+                              passwordController.text.trim()
+                          );
+                      }
+                    },
                     style: ElevatedButton.styleFrom(
                         primary: MyTheme.splash,
                         shape: RoundedRectangleBorder(
@@ -142,13 +165,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         style: const TextStyle(decoration: TextDecoration.underline, fontWeight: FontWeight.w700,color: Colors.redAccent,),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreen()));
+                            // Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreen()));
+                            Get.back();
                           },
                       ),
                     ]
                 ))
           ],
+
         ),
+
       ),
     );
   }

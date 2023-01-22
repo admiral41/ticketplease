@@ -7,7 +7,7 @@ import 'package:ticketplease/utils/my_theme.dart';
 import 'Controller/auth_controller.dart';
 import 'Screens/SplashScreen.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   Get.put(AuthController());
@@ -17,7 +17,8 @@ void main() async{
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      title: 'Flutter Demo',
       theme: MyTheme.myLightTheme,
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),

@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         curve: Curves.bounceOut,
         reverseCurve: Curves.bounceInOut);
     _animationController.forward();
-    Timer(const Duration(milliseconds: 2500), () => Navigator.pushReplacement(context,MaterialPageRoute(builder: (_)=> LoginScreen())));
+    // Timer(const Duration(milliseconds: 2500), () => Navigator.pushReplacement(context,MaterialPageRoute(builder: (_)=> LoginScreen())));
      super.initState();
   }
 

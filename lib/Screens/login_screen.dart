@@ -1,10 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:ticketplease/Controller/auth_controller.dart';
 import 'package:ticketplease/Screens/signup_screen.dart';
-
-import '../utils/my_theme.dart';
-import '../utils/social_button.dart';
+import 'package:ticketplease/utils/my_theme.dart';
+import 'package:ticketplease/utils/social_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -14,11 +16,14 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final forgotEmailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
-    SystemChrome.setSystemUIOverlayStyle(
-        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return Scaffold(
       backgroundColor: MyTheme.splash,
       resizeToAvoidBottomInset: false,
@@ -44,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             Text(
-              "Don't miss out! Login to book your seat now.",
+              "Login to book your seat, I said it's your seat",
               style: TextStyle(
                 fontSize: 15,
                 color: Colors.white.withOpacity(0.7),
@@ -74,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top: 15),
                     child: TextFormField(
-
+                      controller: emailController,
                       style: TextStyle(color: Colors.black),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -91,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top: 15),
                     child: TextFormField(
-
+                      controller: passwordController,
                       style: TextStyle(color: Colors.black),
                       obscureText: true,
                       decoration: InputDecoration(
@@ -110,7 +115,51 @@ class _LoginScreenState extends State<LoginScreen> {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () {
-
+                        Get.defaultDialog(
+                            title: "Forgot Password",
+                            content: TextFormField(
+                              controller: forgotEmailController,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  borderSide: BorderSide.none,
+                                ),
+                                hintText: "Email Address",
+                                hintStyle:
+                                const TextStyle(color: Colors.black),
+                                fillColor: MyTheme.greyColor,
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.black),
+                            ),
+                            radius: 10,
+                            onWillPop: () {
+                              forgotEmailController.text = "";
+                              return Future.value(true);
+                            },
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 10),
+                            confirm: ElevatedButton(
+                                onPressed: () {
+                                  AuthController.instance.forgorPassword(forgotEmailController.text.trim());
+                                  forgotEmailController.text = "";
+                                  Get.back();
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  primary: MyTheme.splash,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                ),
+                                child: const Center(
+                                  child: Padding(
+                                    padding: EdgeInsets.all(12),
+                                    child: Text(
+                                      "Send Reset Mail",
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                  ),
+                                )));
                       },
                       child: Text(
                         "Forgot Password?",
@@ -120,7 +169,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      AuthController.instance.LoginUser(
+                          emailController.text.trim(),
+                          passwordController.text.trim());
+                    },
                     style: ElevatedButton.styleFrom(
                         primary: MyTheme.splash,
                         shape: RoundedRectangleBorder(
@@ -164,9 +217,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top: 15),
                     child: SocialLoginButton(
-                        onGoogleClick: () {},
-                      onfbClick: () {},
-                    ),
+                        onfbClick: () {},
+                        onGoogleClick: () {
+                          AuthController.instance.googleLogin();
+                        }),
                   )
                 ],
               ),
@@ -189,7 +243,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                         Navigator.push(context, MaterialPageRoute(builder: (_) => SignUpScreen()));
+                        // Navigator.push(context, MaterialPageRoute(builder: (_) => SignUpScreen()));
+                        Get.to(SignUpScreen());
                       },
                   ),
                 ]))
