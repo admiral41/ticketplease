@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ticketplease/Controller/auth_controller.dart';
 import 'package:ticketplease/utils/constants.dart';
+import 'package:ticketplease/utils/custom_slider.dart';
 import '../utils/dummy_data.dart';
 import '../utils/my_theme.dart';
 
@@ -19,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   String city = cities[0];
   @override
   Widget build(BuildContext context) {
+    final Size size=MediaQuery.of(context).size;
     SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(statusBarColor: MyTheme.statusBar));
     String? picUrl = AuthController.instance.user!.photoURL;
@@ -75,6 +77,27 @@ class _HomeScreenState extends State<HomeScreen> {
               IconButton(
                   onPressed: () {},
                   icon: SvgPicture.asset("assets/icons/notification.svg")),
+            ],
+          ),
+        ),
+        body: Container(
+          height: size.height,
+          width: size.width,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: size.height*0.22,
+                width: size.width,
+                color: Colors.white,
+                child: PageView.builder(
+                    itemBuilder: (_, i) {
+                  return CustomSlider(
+                    index: 1,
+                  );
+                }),
+              )
             ],
           ),
         ),
