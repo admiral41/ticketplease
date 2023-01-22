@@ -1,5 +1,6 @@
 import '../Models/Movie_model.dart';
 import '../Models/ad_slider_model.dart';
+import '../Models/event_model.dart';
 import '../Models/menu_model.dart';
 import 'constants.dart';
 
@@ -52,5 +53,31 @@ List<MovieModel> movies = [
     actors: ["actor a", "actor b"],
     like: 84,
     bannerUrl: "assets/movies/movie4.png",
+  ),
+];
+List<EventModel> events = [
+  EventModel(
+    title: "Happy Halloween 2K19",
+    description: "Music show",
+    date: "date",
+    bannerUrl: "assets/events/event1.png",
+  ),
+  EventModel(
+    title: "Music DJ king monger Sert...",
+    description: "Music show",
+    date: "date",
+    bannerUrl: "assets/events/event2.png",
+  ),
+  EventModel(
+    title: "Summer sounds festiva..",
+    description: "Comedy show",
+    date: "date",
+    bannerUrl: "assets/events/event3.png",
+  ),
+  EventModel(
+    title: "Happy Halloween 2K19",
+    description: "Music show",
+    bannerUrl: "assets/events/event4.png",
+    date: "date",
   ),
 ];

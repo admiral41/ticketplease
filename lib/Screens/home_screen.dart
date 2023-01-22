@@ -7,6 +7,7 @@ import 'package:ticketplease/Controller/auth_controller.dart';
 import 'package:ticketplease/utils/constants.dart';
 import 'package:ticketplease/utils/custom_slider.dart';
 import '../utils/dummy_data.dart';
+import '../utils/events_items.dart';
 import '../utils/menu_items.dart';
 import '../utils/movies_items.dart';
 import '../utils/my_theme.dart';
@@ -85,32 +86,65 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Container(
           height: size.height,
           width: size.width,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: size.height*0.22,
-                width: size.width,
-                color: Colors.white,
-                child: PageView.builder(
-                    itemBuilder: (_, i) {
-                  return CustomSlider(
-                    index: 1,
-                  );
-                }),
-              ),
-               Padding(
-                padding:  EdgeInsets.only(left: 20.0,top: 20),
-                child: Text("SEAT CATEGORY",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black.withOpacity(0.8)),),
-              ),
-              MenuItems(),
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0,top: 20),
-                child: Text("RECOMMENDED SEATS",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black.withOpacity(0.8)),),
-              ),
-              MoviesItems(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: size.height*0.22,
+                  width: size.width,
+                  color: Colors.white,
+                  child: PageView.builder(
+                      itemBuilder: (_, i) {
+                    return CustomSlider(
+                      index: 1,
+                    );
+                  }),
+                ),
+                 Padding(
+                  padding:  EdgeInsets.only(left: 20.0,top: 20),
+                  child: Text("SEAT CATEGORY",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black.withOpacity(0.8)),),
+                ),
+                MenuItems(),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0,top: 20),
+                  child: Text("RECOMMENDED SEATS",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black.withOpacity(0.8)),),
+                ),
+                MoviesItems(),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0, top: 10, right: 20),
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        "assets/icons/spotlights.svg",
+                        color: Colors.black.withOpacity(0.8),
+                        height: 18,
+                        width: 18,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "Events".toUpperCase(),
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black.withOpacity(0.8)),
+                      ),
+                      const Spacer(),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "View All",
+                          style: TextStyle(color: MyTheme.splash),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                EventItems(
+                  events: events,
+                ),
+              ],
+            ),
           ),
         ),
       ),
