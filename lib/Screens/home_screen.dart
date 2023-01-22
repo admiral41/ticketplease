@@ -8,6 +8,7 @@ import 'package:ticketplease/utils/constants.dart';
 import 'package:ticketplease/utils/custom_slider.dart';
 import '../utils/dummy_data.dart';
 import '../utils/menu_items.dart';
+import '../utils/movies_items.dart';
 import '../utils/my_theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -100,10 +101,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 }),
               ),
                Padding(
-                padding: EdgeInsets.only(left: 20.0,top: 20),
+                padding:  EdgeInsets.only(left: 20.0,top: 20),
                 child: Text("SEAT CATEGORY",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black.withOpacity(0.8)),),
               ),
               MenuItems(),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0,top: 20),
+                child: Text("RECOMMENDED SEATS",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black.withOpacity(0.8)),),
+              ),
+              MoviesItems(),
             ],
           ),
         ),

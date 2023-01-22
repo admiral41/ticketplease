@@ -1,3 +1,4 @@
+import '../Models/Movie_model.dart';
 import '../Models/ad_slider_model.dart';
 import '../Models/menu_model.dart';
 import 'constants.dart';
@@ -22,4 +23,34 @@ List<String> cities = [
   "Pokhara",
   "Biratnagar",
   "Dharan",
+];
+List<MovieModel> movies = [
+  MovieModel(
+    title: "Bigil",
+    description: "description",
+    actors: ["actor a", "actor b"],
+    like: 84,
+    bannerUrl: "assets/movies/movie1.png",
+  ),
+  MovieModel(
+    title: "Kaithi",
+    description: "description",
+    actors: ["actor a", "actor b"],
+    like: 84,
+    bannerUrl: "assets/movies/movie2.png",
+  ),
+  MovieModel(
+    title: "Asuran",
+    description: "description",
+    actors: ["actor a", "actor b"],
+    like: 84,
+    bannerUrl: "assets/movies/movie3.png",
+  ),
+  MovieModel(
+    title: "Sarkar",
+    description: "description",
+    actors: ["actor a", "actor b"],
+    like: 84,
+    bannerUrl: "assets/movies/movie4.png",
+  ),
 ];
